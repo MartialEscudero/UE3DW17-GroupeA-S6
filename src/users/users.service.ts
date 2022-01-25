@@ -18,15 +18,15 @@ export class UsersService {
     return await this.userModel.find().exec();
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} user`;
+  async findOne(id: string): Promise<Users> {
+    return await this.userModel.findById(id).exec();
   }
 
   async update(id: string, updateUserInput: UpdateUserInput): Promise<Users> {
-    return await this.userModel.findByIdAndUpdate(id, updateUserInput).exec();
+    return await this.userModel.findByIdAndUpdate(id, updateUserInput, {new: true}).exec();
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} user`;
+  async remove(id: string) {
+    return await this.userModel.findByIdAndDelete(id).exec();
   }
 }
