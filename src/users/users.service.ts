@@ -14,8 +14,8 @@ export class UsersService {
     return 'This action adds a new user';
   }
 
-  findAll() {
-    return `This action returns all users`;
+  async findAll(): Promise<Users[]>  {
+    return await this.userModel.find().exec();
   }
 
   findOne(id: string) {
