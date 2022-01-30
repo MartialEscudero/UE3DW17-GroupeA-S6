@@ -15,7 +15,7 @@ export class CreateUserInput {
 @ObjectType()
 export class User {
   @Field(() => ID)
-  id: string;
+  id?: string;
 
   @Field()
   firstname: string;
